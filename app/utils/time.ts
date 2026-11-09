@@ -1,7 +1,11 @@
-export function getTimeAgo(date: Date): string {
+export function getTimeAgo(input: Date | string): string {
+  const date =
+    typeof input === "string"
+      ? new Date(/(Z|[+-]\d\d:?\d\d)$/.test(input) ? input : input + "Z")
+      : input;
   const now = new Date();
-  const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
-  
+  const seconds = Math.max(0, Math.floor((now.getTime() - date.getTime()) / 1000));
+
   if (seconds < 60) return "hace unos segundos";
   const minutes = Math.floor(seconds / 60);
   if (minutes < 60) return `hace ${minutes} ${minutes === 1 ? "minuto" : "minutos"}`;

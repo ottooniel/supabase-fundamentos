@@ -1,14 +1,14 @@
 export interface Post {
   id: number | string;
-  user: {
+  user?: {
     username: string;
     avatar: string;
   };
   image_url: string;
-  caption: string;
+  caption: string | null;
   likes: number;
-  isLiked: boolean;
-  created_at: Date;
+  isLiked?: boolean;
+  created_at: Date | string;
   updated_at?: Date;
 }
 
