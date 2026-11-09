@@ -70,7 +70,7 @@ function Modal({
           </div>
           <div className="flex flex-col">
             <span className="font-semibold text-foreground">{post.user?.username || "default_user"}</span>
-            <span className="text-xs text-foreground/50">{getTimeAgo(new Date(post.created_at))}</span>
+            <span className="text-xs text-foreground/50">{getTimeAgo(post.created_at)}</span>
           </div>
         </div>
 

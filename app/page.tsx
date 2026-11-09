@@ -53,7 +53,7 @@ function PostCard({
           <Image
             src={
               post.user?.avatar ||
-              "https://xynshcnkxdliapebmyaz.supabase.co/storage/v1/object/public/images/posts/unnamed-14.jpg"
+              "https://mwwvityivmsrvzakjkhc.supabase.co/storage/v1/object/public/images/profile/bi.png"
             }
             alt={post.user?.username || "default_user"}
             fill
@@ -65,7 +65,7 @@ function PostCard({
             {post.user?.username || "default_user"}
           </span>
           <span className="text-xs text-foreground/50">
-            {getTimeAgo(new Date(post.created_at))}
+            {getTimeAgo(post.created_at)}
           </span>
         </div>
       </div>
@@ -116,10 +116,10 @@ export default function Home() {
       prevPosts.map((post) =>
         post.id === postId
           ? {
-              ...post,
-              isLiked: !post.isLiked,
-              likes: post.isLiked ? post.likes - 1 : post.likes + 1,
-            }
+            ...post,
+            isLiked: !post.isLiked,
+            likes: post.isLiked ? post.likes - 1 : post.likes + 1,
+          }
           : post
       )
     );

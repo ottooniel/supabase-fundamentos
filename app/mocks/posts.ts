@@ -5,10 +5,10 @@ export interface Post {
     avatar: string;
   };
   image_url: string;
-  caption: string;
+  caption: string | null;
   likes: number;
   isLiked?: boolean;
-  created_at: Date;
+  created_at: Date | string;
   updated_at?: Date;
 }
 
